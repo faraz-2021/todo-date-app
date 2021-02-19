@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import Constants from 'expo-constants'
+import { ScrollView, StyleSheet} from "react-native";
+import Constants from "expo-constants";
 import Todo from "./Todo";
 
 export default function App() {
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    marginTop: Constants.statusBarHeight
+    marginTop: Constants.statusBarHeight,
   },
 });

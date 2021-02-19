@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,13 +11,12 @@ import Icon from "react-native-vector-icons/AntDesign";
 import List from "./List";
 
 export default function Todo(props) {
-
-    useEffect(() => {
-        thisDate()
-    }, [thisDate])
+  useEffect(() => {
+    thisDate();
+  }, [thisDate]);
   const currentDateTime = Date().toLocaleString();
-  const [date, setDate] = useState('');
-  const [todo, setTodo] = useState([ ]);
+  const [date, setDate] = useState("");
+  const [todo, setTodo] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState("");
 
@@ -26,7 +25,7 @@ export default function Todo(props) {
       setTodo((prevValue) => {
         return [
           ...prevValue,
-          { title: text.trim(), id: Math.random().toString(),date:date },
+          { title: text.trim(), id: Math.random().toString(), date: date },
         ];
       });
     } else {
@@ -34,8 +33,7 @@ export default function Todo(props) {
     }
   };
   const thisDate = () => {
-  
-    setDate(currentDateTime)
+    setDate(currentDateTime);
   };
 
   return (

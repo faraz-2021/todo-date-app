@@ -4,9 +4,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  TouchableOpacity,
 } from "react-native";
-
 
 const List = (props) => {
   return (
@@ -64,16 +62,13 @@ const styles = StyleSheet.create({
     opacity: 0.3,
   },
   indicator: {
-    // color: Colors.green,
     fontSize: 25,
   },
   indicator2: {
-    // color: Colors.red,
     fontSize: 25,
   },
   checkButton: {
     fontSize: 30,
-    // color: Colors.blue,
   },
   todoContainer: {
     flex: 1,
@@ -86,7 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 20,
-    // borderBottomColor: Colors.gray,
     borderBottomWidth: 1,
   },
   todoText: {
