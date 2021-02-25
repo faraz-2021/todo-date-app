@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ScrollView, StyleSheet} from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
-import Todo from "./Todo";
+import Todo from "./src/components/Todo";
 
 export default function App() {
   return (
