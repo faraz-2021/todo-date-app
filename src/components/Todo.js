@@ -11,7 +11,12 @@ import Icon from "react-native-vector-icons/AntDesign";
 import List from "./List";
 
 export default function Todo() {
-  const currentDateTime = Date().toLocaleString();
+  var today = new Date();
+  var date1 =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  var time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var current = date1 + "\n" + time;
 
   const [date, setDate] = useState("");
   const [todo, setTodo] = useState([]);
@@ -25,7 +30,7 @@ export default function Todo() {
   }, [thisDate]);
 
   const addTodos = (text) => {
-    if (text.trim().length > 0) {
+    if (text) {
       setTodo(() => {
         return [
           ...todo,
@@ -37,15 +42,13 @@ export default function Todo() {
           },
         ];
       });
-      todo.sort();
     } else {
       alert("List can't be empty");
     }
   };
   const thisDate = () => {
-    todo.sort();
+    setDate(current);
     setText(null);
-    setDate(currentDateTime);
   };
 
   const setCheck = (id) => {
@@ -127,6 +130,8 @@ export default function Todo() {
           thisDate={thisDate}
           updateTodo={updateTodo}
           addTodos={addTodos}
+          setDate={setDate}
+          setText={setText}
         />
       </View>
     </View>

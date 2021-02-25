@@ -6,11 +6,19 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
+  Button,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import UpdateModal from "./updateTodos";
 
 const List = (props) => {
+
+  const sortArray = () => {
+  console.log(props.todo,'todo')
+    props.todo.sort();
+  };
+
   return (
     <SafeAreaView>
       <FlatList
@@ -31,13 +39,17 @@ const List = (props) => {
                     color={"#DC143C"}
                   />
                 </TouchableOpacity>
-
-                <Text
-                  style={!item.check ? styles.title : styles.title1}
-                  onPress={() => props.updateTodo(item.id, item.title)}
-                >
-                  {item.title}
-                </Text>
+                <ScrollView style={{ width: 160 }}>
+                  <Text
+                    style={!item.check ? styles.title : styles.title1}
+                    onPress={() => {
+                      props.updateTodo(item.id, item.title);
+                      props.setText(null);
+                    }}
+                  >
+                    {item.title}
+                  </Text>
+                </ScrollView>
                 <Text>{item.date}</Text>
               </View>
             </View>
@@ -56,8 +68,13 @@ const List = (props) => {
           editText={props.editText}
           thisDate={props.thisDate}
           setTodo={props.setTodo}
+          setDate={props.setDate}
         />
       ) : null}
+      
+      <TouchableOpacity style={{width:50,height:30,borderWidth:1}} onPress={sortArray}>
+        <Text>Sort</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
